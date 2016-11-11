@@ -1,6 +1,8 @@
 #ignore packages installed by npm
 node_modules
+bower_components
 views-new
 *~
 .DS_Store
+*.zip
 credentials.js

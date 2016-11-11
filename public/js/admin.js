@@ -25,6 +25,7 @@ var remove = function(event) {
     }
   })
 };
+
 var update = function(event) {
   var $tr = findTr(event);
   $tr.find('button').attr('disabled', 'disabled');

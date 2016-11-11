@@ -1,0 +1,14 @@
+.menu
+  ul.nav.nav-pills
+    li(class=(menu === 'index')?'active':'')
+      a(href='/') 博客列表
+    if (admin || menu ==='admin' || menu==='post')
+      li(class=(menu === 'post')?'active':'')
+        a(href="/post") 写博客
+      li(class=(menu === 'admin')?'active':'')
+        a(href="/admin") 管理
+      li
+        a(href="/logout") 退出
+    else
+      li(class=(menu === 'login')?'active':'')
+        a(href='/login') 登陆
