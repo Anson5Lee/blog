@@ -68,7 +68,7 @@ exports.delete = function(req, res, next) {
 		if (!article) return next(new Error('未找到对应文章！！！'));
 		article.remove(function(err, doc) {
 			if (err) return next(err);
-			console.log(doc);
+			// console.log(doc);
 			res.send(doc);
 		})
 	})

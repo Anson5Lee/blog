@@ -6,6 +6,7 @@ const http = require('http');
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const favicon = require('serve-favicon');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -29,6 +30,7 @@ db.once("open", function() {
 // Initialize & Config the app
 // /////////////////////////////////////////
 const app = express();
+
 app.locals.appTitle = 'Frank Lee';
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -57,6 +59,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/articles', express.static(path.join(__dirname, '/public')));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 // Authentication middleware
 app.use(function(req, res, next) {
 	if (req.session && req.session.admin) {
@@ -92,7 +95,7 @@ app.get('/post', routes.article.post);
 app.post('/post', routes.article.postArticle);
 
 // APIs
-app.all('/api/*', authorize);
+// app.all('/api/*', authorize);
 app.del('/api/articles/:id', routes.article.delete);
 app.put('/api/articles/:id', routes.article.update);
 
