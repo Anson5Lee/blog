@@ -1,0 +1,21 @@
+<!-- <navigation></navigation> -->
+<div class="container">
+	<div class="page-header">欢迎来到我的博客</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-8">
+			<div class="row list-group">
+				<div class="col-xs-12 list-group-item" ng-repeat="article in articles">
+					<h4>
+						<a href="#/article/{{article._id}}">{{article.title}}</a>
+					</h4>
+					<p>
+						<span class="label label-warning label-facility" ng-repeat="tag in article.tags">
+							{{tag}};
+						</span>
+						<small class="pull-right">发表于：{{article.author}}</small>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

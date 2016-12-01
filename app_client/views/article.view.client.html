@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="page-header">{{article.title}}</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<span class="label label-warning label-facility" ng-repeat="tag in article.tags">
+						{{tag}};
+					</span>
+					<small class="pull-right">发表于：{{article.createdOn}}</small>
+				</div>
+			</div>	
+		</div>
+		<div class="col-xs-12 col-md-12">
+			{{article.articleBody}}
+			<!-- <p ng-bind-html="article.articleBody"></p> -->
+		</div>
+	</div>
+	<div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-primary review-panel">
+	            <div class="panel-heading"><a ng-click="popupCommentModal()" class="btn btn-success pull-right">添加评论</a>
+	            	<h2 class="panel-title">相关评论</h2>
+	            </div>
+	            <div class="panel-body review-container">
+	                <div class="row">
+		                <div class="comment" ng-repeat="comment in article.comments | orderBy:'createdOn' : true ">
+		                    <div class="well well-sm comment-header">
+		                    	<span class="commentAuthor">{{ comment.author }}</span>
+		                    	<small class="reviewTimestamp pull-right">{{ comment.createdOn | date : 'yyyy-mm-dd' }}</small>
+		                    </div>
+			                <div>
+			                	{{comment.commentBody}}
+			                </div>
+		           		</div>
+	            	</div>
+        		</div>
+            </div>
+        </div>
+    </div>
+</div>

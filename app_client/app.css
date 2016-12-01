@@ -1,0 +1,14 @@
+.blog-body {
+	margin-top: 50px;
+}
+
+.links a img {
+	with: 15px;
+	height: 15px;
+}
+
+.links a {
+	cursor: pointer;
+	padding: 2px;
+	margin: 0 3px;
+}

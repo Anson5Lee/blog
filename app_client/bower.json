@@ -1,14 +1,11 @@
 {
-  "name": "public",
+  "name": "app_client",
   "homepage": "https://github.com/Frank5li/blog",
   "authors": [
-    "FRANK <frank5li@163.com>"
+    "frank <frank5li@163.com>"
   ],
   "description": "",
   "main": "",
-  "moduleType": [
-    "amd"
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -18,8 +15,12 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1",
+    "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "ckeditor": "^4.6.0"
+    "angular-route": "^1.5.8",
+    "angular-bootstrap": "^2.2.0",
+    "angular-i18n": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "angular-ui-tinymce": "^0.0.17"
   }
 }

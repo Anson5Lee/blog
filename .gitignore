@@ -6,3 +6,6 @@ views-new
 .DS_Store
 *.zip
 credentials.js
+log
+# Environment variables
+.env
