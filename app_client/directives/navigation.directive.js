@@ -6,7 +6,8 @@
 		function navigation() {
 			return {
 				restrict: 'EA',
-				templateUrl: '/directives/navigation.template.html'
+				templateUrl: '/directives/navigation.template.html',
+				controller: 'navigationCtrl'
 			}
 		}
 })()

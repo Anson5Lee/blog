@@ -7,22 +7,20 @@
 			$scope.articleData = articleData;
 			$scope.onSubmit = function(){
 				$scope.Error = "";
-				if (!$scope.comment) {
-					$scope.Error = "请填写评论内容和评论人";
+				if (!$scope.comment.commentBody) {
+					$scope.Error = "评论内容不能为空！";
 					return false;
 				} else {
 					$scope.addComment(articleData.articleId, $scope.comment)
 				}
 			}
-			
+
 			$scope.addComment = function(articleId, comment) {
 				ArticleService
 					.addCommentByArticleId(articleId, {
-						author : comment.author,
 						commentBody: comment.commentBody
 					})
 					.success(function(data) {
-						console.log(data);
 						$scope.modal.close(data);
 					})
 

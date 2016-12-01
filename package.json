@@ -20,15 +20,7 @@
     "mongoose": "^4.6.8",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1",
-    "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.0"
-  },
-  "devDependencies": {
-    "expect.js": "^0.2.0",
-    "mocha": "^1.16.2",
-    "superagent": "^0.15.7"
   }
 }

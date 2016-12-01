@@ -1,9 +1,9 @@
 (function() {
 	angular
 		.module('AnsonBlog')
-		.factory('AauthenticationService', authentication)
+		.factory('AuthenticationService', authentication)
 
-		function authentication($window) {
+		function authentication($window, $http) {
 			return {
 				saveToken: saveToken,
 				getToken: getToken,
@@ -23,13 +23,13 @@
 			}
 
 			function register(user) {
-				return $http.post('/register', user).success(function(data) {
+				return $http.post('/api/user/register', user).success(function(data) {
 					saveToken(data.token);
 				})
 			}
 
 			function login(user) {
-				return $http.post('/login', user).success(function(data) {
+				return $http.post('/api/user/login', user).success(function(data) {
 					saveToken(data.token);
 				})
 			}
@@ -47,7 +47,7 @@
 					return false;
 				}
 			}
-			
+
 			function currentUser() {
 				if (isLoggedIn()) {
 					var token = getToken();

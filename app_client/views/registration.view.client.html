@@ -3,22 +3,22 @@
 
   <div class="row">
     <div class="col-md-6 col-sm-12">
-      <p class="lead">Already a member? Please <a href="/#login?page={{ vm.returnPage }}">log in</a> instead.</p>
-      <form ng-submit="vm.onSubmit()">
-        <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+      <p class="lead">已经注册? 请 <a href="/#login?page={{returnPage}}">登陆</a>。</p>
+      <form ng-submit="onSubmit()">
+        <div role="alert" ng-show="formError" class="alert alert-danger">{{formError }}</div>
         <div class="form-group">
-          <label for="name">用户名</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+          <label for="name">昵称</label>
+          <input type="text" class="form-control" id="name" placeholder="请输入昵称，用于发表评论" ng-model="credentials.name">
         </div>
         <div class="form-group">
           <label for="email">电子邮箱</label>
-          <input type="email" class="form-control" id="email" placeholder="邮箱" ng-model="vm.credentials.email">
+          <input type="email" class="form-control" id="email" placeholder="邮箱" ng-model="credentials.email">
         </div>
         <div class="form-group">
           <label for="password">密码</label>
-          <input type="password" class="form-control" id="password" placeholder="密码" ng-model="vm.credentials.password">
+          <input type="password" class="form-control" id="password" placeholder="密码" ng-model="credentials.password">
         </div>
-        <button type="submit" class="btn btn-default">注册！</button>
+        <button type="submit" class="btn btn-primary">注册！</button>
       </form>
     </div>
   </div>

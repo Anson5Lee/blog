@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-// mongoose.set('debug', true);
-mongoose.connect("mongodb://localhost/anson-blog")
 const commentSchema = new mongoose.Schema({
 	author: {
 		type: String,
@@ -25,7 +23,7 @@ const articleSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	articleBody: {
+	content: {
 		type: String,
 		required: true
 	},
@@ -38,4 +36,4 @@ const articleSchema = new mongoose.Schema({
 }, {collection: 'article'})
 
 
-module.exports = mongoose.model('ArticleModel', articleSchema);
+module.exports = mongoose.model('Article', articleSchema);

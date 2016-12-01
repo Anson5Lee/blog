@@ -1,13 +1,10 @@
 (function(){
 	angular
-		.module('AnsonBlog', ['ngRoute', 'ui.bootstrap', 'ui.tinymce'])
+		.module('AnsonBlog', ['ngRoute', 'ui.bootstrap'])
 		.config(config)
 
 		function config($routeProvider, $locationProvider) {
 			$routeProvider
-				.when('/', {
-					redirectTo: '/article'
-				})
 				.when('/article', {
 					templateUrl: '/views/home.view.client.html',
 					controller: 'homeCtrl'
@@ -17,14 +14,12 @@
 					controller: 'articleCtrl'
 				})
 				.when('/register', {
-					templateUrl: '/views/registration.view.client.html'
+					templateUrl: '/views/registration.view.client.html',
+					controller: 'registerCtrl'
 				})
 				.when('/login', {
-					templateUrl: '/views/login.view.client.html'
-				})
-				.when('/tinymce', {
-					templateUrl: '/views/tinymce.html',
-					controller: 'TinyMceController'
+					templateUrl: '/views/login.view.client.html',
+					controller: 'loginCtrl'
 				})
 				.otherwise({
 					redirectTo: '/article'

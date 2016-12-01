@@ -4,13 +4,9 @@
 		<p class="links text-center">
 			<a href="https://github.com/">Blog</a>
 			<a href="https://github.com/">Github</a>
+			<a href="#/login" ng-show="!isLoggedIn">Sign in</a>
+			<a href="javascript:0;" ng-show="isLoggedIn">{{currentUser.name}}</a>
+			<a href="javascript:0;" ng-show="isLoggedIn" ng-click="logout()">Log out</a>
 		</p>
-		
-		<!-- <div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#/">Blog</a></li>
-				<li><a href="https://github.com/Frank5li">Github</a></li>
-			</ul>
-		</div> -->
 	</div>
 </div>

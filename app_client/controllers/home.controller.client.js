@@ -5,8 +5,8 @@
 
 		function homeController($scope, ArticleService) {
 			ArticleService.getAllArticles()
-				.success(function(articles) {
-					$scope.articles = articles;
+				.success(function(response) {
+					$scope.articles = response.data;
 				})
 
 		}

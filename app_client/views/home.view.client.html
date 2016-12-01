@@ -1,21 +1,17 @@
 <!-- <navigation></navigation> -->
 <div class="container">
 	<div class="page-header">欢迎来到我的博客</div>
-	<div class="row">
-		<div class="col-xs-12 col-sm-8">
-			<div class="row list-group">
-				<div class="col-xs-12 list-group-item" ng-repeat="article in articles">
-					<h4>
+		<div class="row">
+			<ul class="col-xs-12 col-sm-8 list-group">
+				<li class="row list-group-item" ng-repeat="article in articles">
+					<h3 class="col-xs-3 clearfix">
+						<small class="pull-left">{{article.createdOn | date : 'yyyy-MM-dd'}}</small>
+					</h3>
+					<h2 class="col-xs-8 clearfix">
 						<a href="#/article/{{article._id}}">{{article.title}}</a>
-					</h4>
-					<p>
-						<span class="label label-warning label-facility" ng-repeat="tag in article.tags">
-							{{tag}};
-						</span>
-						<small class="pull-right">发表于：{{article.author}}</small>
-					</p>
-				</div>
-			</div>
+					</h2>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

@@ -3,13 +3,17 @@
 		.module('AnsonBlog')
 		.controller('articleCtrl', articleController)
 
-		function articleController($scope, $routeParams, ArticleService, $uibModal, $q) {
+		function articleController($scope, $routeParams, ArticleService, AuthenticationService, $location, $uibModal, $q) {
+
+			$scope.isLoggedIn = AuthenticationService.isLoggedIn();
+			$scope.currentPath = $location.path();
+
 			var articleId = $routeParams.aid;
 			$scope.articleId = articleId;
 			var deferred = $q.defer();
 			ArticleService.getArticleById(articleId)
-				.success(function(article) {
-					$scope.article = article;
+				.success(function(response) {
+					$scope.article = response.data;
 					deferred.resolve();
 				})
 
@@ -25,9 +29,7 @@
 				uibModalInstance
 					.result
 					.then(function(data) {
-						// console.log("modal returned data" + data);
-						$scope.article.comments.push(data);
-						console.log($scope.article);
+						$scope.article.comments.push(data.data);
 					})
 			}
 
