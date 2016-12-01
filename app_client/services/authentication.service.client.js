@@ -27,14 +27,17 @@
 					saveToken(data.token);
 				})
 			}
+
 			function login(user) {
 				return $http.post('/login', user).success(function(data) {
 					saveToken(data.token);
 				})
-			}		
+			}
+
 			function logout(user) {
 				$window.localStorage.removeItem('Blog-Token');
 			}
+
 			function isLoggedIn() {
 				var token = getToken();
 				if (token) {
@@ -44,6 +47,7 @@
 					return false;
 				}
 			}
+			
 			function currentUser() {
 				if (isLoggedIn()) {
 					var token = getToken();
