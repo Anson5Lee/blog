@@ -3,11 +3,13 @@
 		.module('AnsonBlog')
 		.controller('articleCtrl', articleController)
 
-		function articleController($scope, $routeParams, ArticleService, AuthenticationService, $location, $uibModal, $q) {
+		function articleController($scope, $routeParams, ArticleService, AuthenticationService, $location, $uibModal, $q, $sce) {
 
 			$scope.isLoggedIn = AuthenticationService.isLoggedIn();
 			$scope.currentPath = $location.path();
-
+			$scope.checkSafeHTML = function(html) {
+				return $sce.trustAsHtml(html)
+			}
 			var articleId = $routeParams.aid;
 			$scope.articleId = articleId;
 			var deferred = $q.defer();

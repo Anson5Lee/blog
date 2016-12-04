@@ -23,8 +23,8 @@
 		<span class="label label-success" ng-repeat="tag in article.tags">{{tag}}</span>
 	</h4>
 	<h3 class="page-header">{{article.title}}</h3>
-	<p class="content">
-			{{article.content}}
+	<p class="content" ng-bind-html="checkSafeHTML(article.content)">
+
 	</p>
 	<div class="row">
         <div class="col-xs-12 comments-wrapper">
@@ -39,7 +39,7 @@
 		                <div class="comment" ng-repeat="comment in article.comments | orderBy:'createdOn' : true ">
 		                    <div class="well well-sm comment-header">
 		                    	<span class="commentAuthor">{{ comment.author }}</span>
-		                    	<small class="reviewTimestamp pull-right">{{ comment.createdOn | date : 'yyyy-mm-dd' }}</small>
+		                    	<small class="reviewTimestamp pull-right">{{ comment.createdOn | date : 'yyyy-MM-dd' }}</small>
 		                    </div>
 			                <div>
 			                	{{comment.commentBody}}

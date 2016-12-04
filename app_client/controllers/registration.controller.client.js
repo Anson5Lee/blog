@@ -5,6 +5,8 @@
 
 
     function registrationController($scope, AuthenticationService, $location) {
+      $scope.pageHeader = "注册新用户"
+      console.log($location.search());
       $scope.returnPage = $location.search().page || '/';
       $scope.credentials = {};
       $scope.onSubmit = function() {

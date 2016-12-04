@@ -3,7 +3,7 @@
 	<div class="page-header">欢迎来到我的博客</div>
 		<div class="row">
 			<ul class="col-xs-12 col-sm-8 list-group">
-				<li class="row list-group-item" ng-repeat="article in articles">
+				<li class="row list-group-item" ng-repeat="article in articles | orderBy:'createdOn':true">
 					<h3 class="col-xs-3 clearfix">
 						<small class="pull-left">{{article.createdOn | date : 'yyyy-MM-dd'}}</small>
 					</h3>
