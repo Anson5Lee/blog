@@ -1,0 +1,52 @@
+<style media="screen">
+  .image-preview {
+    word-break: break-all;
+  }
+</style>
+<div class="row">
+  <div class="col-xs-12">
+    <label for="file" class="btn btn-primary btn-block">选择图片</label>
+    <input type="file"
+           file-input="files"
+           name="avatar"
+           class="hide"
+           id="file"
+           onchange="angular.element(this).scope().imageUpload(event)"/>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="button" class="btn btn-success btn-block" value="上传" ng-click="upload()">
+  </div>
+</div>
+<div class="row text-center" ng-show="isProcessing">
+  <div class="col-xs-12">
+    <img src="/ajax-loaders/ajax-loader-5.gif" alt="">
+  </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading text-center">图片信息</div>
+      <div class="panel-body image-preview">
+        <p class="text-primary"><strong>名称：</strong></p>
+        <p>{{file.name}}</p>
+        <p class="text-primary"><strong>大小（KB）：</strong></p>
+        <p>{{file.size / 1024 | number: 2}}</p>
+        <p class="text-primary"><strong>类型：</strong></p>
+        <p>{{file.type.split('/')[1]}}</p>
+        <p><strong class="text-primary">预览：</strong></p>
+        <p>
+          <img ng-src="{{step}}" alt="" class="image-thumbnail" style="max-width:100%">
+        </p>
+      </div>
+      <div class="panel-body image-uri">
+        <div class="form-group">
+          <label for="imageUri" class="text-primary">上传图片地址</label>
+          <input id="imageUri" type="text" name="" ng-model="picUrl" class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

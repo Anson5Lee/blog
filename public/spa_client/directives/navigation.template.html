@@ -1,0 +1,16 @@
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<p class="header pull-left navbar-logo"><a href="/">ANSON LEE</a></p>
+		<p class="links text-center">
+			<span class="pull-right navbar-btn-group" ng-if="!isLoggedIn">
+				<a href="register?page={{currentPath}}" class="navbar-register-btn">注册</a> |
+				<a href="login?page={{currentPath}}"class="navbar-login-btn">登陆</a>
+			</span>
+			<span class="pull-right" ng-if="isLoggedIn">
+				<a href="javascript:0;">{{currentUser.name}}</a>
+				<a href="admin" ng-if='isAdmin'>管理员入口</a>
+				<a href="javascript:0;" class="text-danger" ng-click="logout()">退出</a>
+			</span>
+		</p>
+	</div>
+</div>

@@ -2,6 +2,7 @@
 node_modules
 bower_components
 views-new
+scss
 *~
 .DS_Store
 *.zip
@@ -9,3 +10,5 @@ credentials.js
 log
 # Environment variables
 .env
+gulpfile.js
+uploads

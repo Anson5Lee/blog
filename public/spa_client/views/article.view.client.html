@@ -1,0 +1,75 @@
+<div class="banner article-banner">
+	<div progressive-img place-holder="article.thumbnailUri" image-src="article.mainBanner"></div>
+</div>
+<div class="article">
+	<div class="container">
+		<div class="row">
+			<h5 class="col-md-8 col-md-offset-2">
+				<span class="article-detail__createdOn">发表于：{{article.createdOn | date: "yyyy-MM-dd HH:mm:ss"}}</span>
+			</h5>
+		</div>
+		<div class="row article-detail__title">
+			<div class="col-md-8 col-md-offset-2">
+				<h1>{{article.title}}</h1>
+			</div>
+		</div>
+		<div class="row article-detail__content">
+			<div class="col-md-8 col-md-offset-2">
+				<p class="content" ng-bind-html="checkSafeHTML(article.content)"></p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="container">
+	<div class="row article-detail__btn-show-comments">
+		<div class="col-md-8 col-md-offset-2">
+			<a ng-show="!isLoggedIn" class="btn btn-primary btn-block">注册&nbsp;|&nbsp;登陆后可添加评论</a>
+			<a ng-show="isLoggedIn" ng-click="popupCommentModal()" class="btn btn-success btn-block">添加评论</a>
+		</div>
+	</div>
+	<div class="row article-detail__load-comments" ng-class="{'u-hide' : isCommentsShown}" ng-click="showComments()">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="button">
+				显示全部评论
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+
+</div>
+
+<div class="container article-detail__comments-list" ng-class="{'u-hide' : isCommentsShown}">
+	<!-- <div class="row" ng-hide="article.comments.length">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="button">
+				暂无评论
+			</div>
+		</div>
+	</div> -->
+	<div class="row" ng-show="article.comments.length">
+		<div class="article-detail__comments-item col-md-8 col-md-offset-2" ng-repeat="comment in article.comments | orderBy:createdOn:true">
+			<div class="post-wrapper">
+				<div class="clearfix postMeta">
+					<div class="postMetaInline pull-left">
+						<div class="postMetaInline-avatar">
+							<a href="javascript:0" class="avatar"><img class="avatar-image" src="/favicon.png" alt=""></a>
+						</div>
+						<div class="postMetaInline-authorLockup">
+							<a href="#">{{comment.author}}</a>
+							<div class="postMetaInline-createdOn">
+								<a href="#">{{comment.createdOn | date : 'yyyy-MM-dd'}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layoutSingleColumn">
+						{{comment.commentBody}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
