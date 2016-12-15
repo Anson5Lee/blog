@@ -33,12 +33,20 @@ userSchema.methods.validPassword = function(password) {
 userSchema.methods.generateJwt = function() {
   var expiry = new Date();
   expiry.setDate(expiry.getDate() + 10);
-  return jwt.sign({
-    _id: this._id,
-    email: this.email,
-    name: this.name,
-    exp: parseInt(expiry.getTime()/1000),
-  }, process.env.JWT_SECRET);
+  var userInfoJSONString = JSON.stringify({
+      _id: this._id,
+      email: this.email,
+      name: this.name,
+      exp: parseInt(expiry.getTime()/1000),
+  });
+  var userInfoURIString = encodeURIComponent(userInfoJSONString);
+  return jwt.sign(userInfoURIString, process.env.JWT_SECRET);
+  // return jwt.sign({
+  //   _id: this._id,
+  //   email: this.email,
+  //   name: this.name,
+  //   exp: parseInt(expiry.getTime()/1000),
+  // }, process.env.JWT_SECRET);
 }
 
 mongoose.model('user', userSchema);

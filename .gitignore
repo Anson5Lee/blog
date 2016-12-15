@@ -13,4 +13,4 @@ log
 gulpfile.js
 uploads
 ssl
-.log
+*.log

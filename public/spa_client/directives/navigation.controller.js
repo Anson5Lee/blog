@@ -10,7 +10,6 @@
       $scope.currentPath = $location.path();
       $scope.isLoggedIn = AuthenticationService.isLoggedIn();
       $scope.currentUser = AuthenticationService.currentUser();
-      // $scope.isAdmin = $scope.currentUser.email === 'frank5li@163.com' ? true : false;
       $scope.$watch(AuthenticationService.isLoggedIn, function(newVal){
         $scope.isLoggedIn = newVal;
         $scope.currentUser = AuthenticationService.currentUser();

@@ -8,6 +8,7 @@
       $scope.credentials = {};
       $scope.returnPage = $location.search().page
       $scope.onSubmit = function() {
+        // console.log("here");
         AuthenticationService.login($scope.credentials)
           .then(function() {
             $location.search('page', null);

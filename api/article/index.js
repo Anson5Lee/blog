@@ -64,14 +64,14 @@ router.post('/', function(req, res) {
 // ////////////////////////////////////////////////////////////
 
 router.post('/:id/comment', auth, function(req, res) {
-  var payload = req.payload;
+  var payload = JSON.parse(decodeURIComponent(req.payload));
   var articleId = req.params.id;
   var author = null;
   User
     .findOne({email: payload.email})
     .then(function(user) {
       author = user.name;
-      return Promise.all([user, Article.findById({_id: articleId})])
+      return Promise.all([user, Article.findById({_id: articleId})]);
     })
     .then(function(result) {
       var comment = req.body;

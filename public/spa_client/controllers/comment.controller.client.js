@@ -7,8 +7,9 @@
 		function commentModalController($scope, articleData, $uibModalInstance, ArticleService) {
 			$scope.articleData = articleData;
 			$scope.onSubmit = function(){
+				console.log($scope.comment);
 				$scope.Error = "";
-				if (!$scope.comment.commentBody) {
+				if (!$scope.comment) {
 					$scope.Error = "评论内容不能为空！";
 					return false;
 				} else {
@@ -24,7 +25,6 @@
 					.success(function(data) {
 						$scope.modal.close(data);
 					})
-
 			}
 
 			$scope.modal = {

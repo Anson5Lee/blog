@@ -42,7 +42,8 @@
 			function isLoggedIn() {
 				var token = getToken();
 				if (token) {
-					var payload = JSON.parse($window.atob(token.split('.')[1]));
+					var payloadJSONString = decodeURIComponent($window.atob(token.split('.')[1]));
+					var payload = JSON.parse(payloadJSONString);
 					return payload.exp > Date.now() / 1000;
 				} else {
 					return false;
@@ -52,7 +53,8 @@
 			function currentUser() {
 				if (isLoggedIn()) {
 					var token = getToken();
-					var payload = JSON.parse($window.atob(token.split('.')[1]));
+					var payloadJSONString = decodeURIComponent($window.atob(token.split('.')[1]));
+					var payload = JSON.parse(payloadJSONString);
 					return {
 						email: payload.email,
 						name: payload.name
