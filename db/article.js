@@ -44,7 +44,7 @@ const articleSchema = new mongoose.Schema({
 		"default": Date.now
 	},
 	tags: [String],
-	comments: [commentSchema]
+	comments: [commentSchema] 
 }, {collection: 'article'})
 
 
